@@ -31,9 +31,9 @@ function CheckOffService(){
 
 	var shoppingList = [
 		{name: "table", quantity: "1"},
-		{name: "apples", quantity: "10"},
-		{name: "snacks", quantity: "23"},
 		{name: "chairs", quantity: "4"},
+		{name: "drinks", quantity: "10"},
+		{name: "snacks", quantity: "23"},
 		{name: "cookies", quantity: "50"}
 		];
 	var boughtItems = [];
