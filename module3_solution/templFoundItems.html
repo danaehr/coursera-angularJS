@@ -7,6 +7,6 @@
       	<button ng-click="fidc.onRemove({index: $index});" class="col-3">Don't want this one!</button>
       </li>
     </ul>
-    <div ng-if="fidc.listFoundItems.length == 0">Nothing found</div>
+    <div ng-if="fidc.listFoundItems.length == 0 && fidc.showNothingFoundHint">Nothing found</div>
 
     <!--<found-items found-items="...." on-remove="...."></found-items>-->

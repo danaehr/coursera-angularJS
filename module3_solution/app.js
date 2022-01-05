@@ -14,16 +14,24 @@ function NarrowItDownControllerFct(MenuSearchService){
 
 	nid.searchTerm="";
 	nid.found=[];
+	nid.nothingFound = false;
 
 	nid.getMatchedMenuItems=function(){
 		if(nid.searchTerm != ""){
 			MenuSearchService.getMatchedMenuItems(nid.searchTerm).then(
 			function(result){
 				nid.found=result;
+				if(nid.found.length > 0){
+					nid.nothingFound = false;
+				}
+				else{
+					nid.nothingFound = true;
+				}
 			});
 		}
 		else{
 			nid.found = [];
+			nid.nothingFound = true;
 		}
 		
 	};
@@ -31,7 +39,6 @@ function NarrowItDownControllerFct(MenuSearchService){
 	nid.removeItem=function(itemIndex){
 		//var objectRemoved = 
     	nid.found.splice(itemIndex,1);
-
     	//console.log("removed item: ");
     	//console.log(objectRemoved);
 	};
@@ -79,7 +86,8 @@ function foundItemsFct(){
 	var ddo = {
 		templateUrl: 'templFoundItems.html',
 		scope: {
-			listFoundItems: '<',//'<foundItemsList',
+			listFoundItems: '<',
+			showNothingFoundHint: '<' ,
 			onRemove: '&'
 		},
 		controller: foundItemsDirectiveController,
