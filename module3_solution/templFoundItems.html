@@ -1,0 +1,12 @@
+
+    <!-- found-items should be implemented as a component -->
+    <ul >
+<!--      <li ng-repeat="item in listFoundItems">{{item.name}}</li>-->
+      <li ng-repeat="item in fidc.listFoundItems" class="row">
+      	{{item.name}}, {{item.short_name}}, {{item.description}}
+      	<button ng-click="fidc.onRemove({index: $index});" class="col-3">Don't want this one!</button>
+      </li>
+    </ul>
+    <div ng-if="fidc.listFoundItems.length == 0">Nothing found</div>
+
+    <!--<found-items found-items="...." on-remove="...."></found-items>-->
